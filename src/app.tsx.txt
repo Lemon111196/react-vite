@@ -1,0 +1,66 @@
+import { useState } from 'react'
+// import reactLogo from './assets/react.svg'
+// import viteLogo from '/vite.svg'
+// import './App.css'
+import './assets/scss/App.css'
+import WelcomeReact from './components/WelcomeReact';
+import CssScope from './components/cssScope';
+interface IStudent{
+  name: string;
+  class: string;
+  dob: string;
+}
+
+function App() {
+  const [studentInfo, setStudentInfo] = useState<IStudent>({
+    name: 'abc',
+    class: '1A2',
+    dob: '2000'
+  })
+  // console.log(IStudent);
+  // const todoList = [
+  //   { title: "A", status: "todo" },
+  //   { title: "B", status: "Done" },
+  // ]
+  // let a: number = 1;
+  // const countUp = () => {
+  //   // a += 1;
+  //   // console.log(a);
+  //   setCount(count + 1);
+  // }
+  // console.log('re-render');
+  let a : number = 0;
+  const checkEmit = (params: string) => {
+    console.log(params);
+  }
+
+  return (
+    <div className="app-container">
+      <WelcomeReact initNumber={a} checkEmit={checkEmit} >
+        <h6>Blo </h6> 
+      </WelcomeReact>
+      <br/>
+
+      <CssScope>
+
+      </CssScope>
+  
+    </div>
+    // <div className="app-container">
+    //   <button onClick={countUp}>Up</button>
+    //   {count}
+    //   <p>
+    //     {
+    //       count % 2 === 0 ? 'Even' : 'Odd'
+    //     }
+    //   </p>
+    //   {
+    //     count % 2 === 0 ? (<p>Even</p>) : (<p>Odd</p>)
+    //   }
+    //   {todoList.map((item, index) => (
+    //     <div className="list" key={index}>
+    //       <span>{item.title}</span>
+    //       <span>{item.status}</span>
+    //     </div>
+    //   ))}
+    // </div>

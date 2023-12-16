@@ -1,0 +1,58 @@
+import { useState } from 'react'
+// import reactLogo from './assets/react.svg'
+// import viteLogo from '/vite.svg'
+// import './App.css'
+import './assets/scss/App.css'
+// import WelcomeReact from './components/WelcomeReact';
+// import CssScope from './components/cssScope';
+interface IStudent {
+  name: string;
+  class: string;
+  dob: string;
+}
+
+function App() {
+  const [studentInfo, setStudentInfo] = useState<IStudent>({
+    name: 'abc',
+    class: '1A2',
+    dob: '2000'
+  })
+  const [nameValue, setNameValue] = useState<string>('');
+  const onChangeName = (e: any) => {
+    console.log(e.target.value);
+    setNameValue(e.target.value);
+  }
+  const updateName = () => {
+    setStudentInfo({
+      ...studentInfo,
+      name: nameValue,
+      class: classValue,
+      dob: dobValue
+    })
+  }
+
+  const [classValue, setClassValue] = useState<string>(studentInfo.class);
+  const onChangeClass = (e: any) => {
+    setClassValue(e.target.value);
+  }
+  const [dobValue, setDobValue] = useState<string>(studentInfo.dob);
+  const onChangeDob = (e: any) => {
+    setDobValue(e.target.value);
+  }
+
+  return (
+    <div className="app-container">
+      <div className="group-input">
+        <input type="text" value={nameValue} onChange={onChangeName} />
+        <input type="text" value={classValue} onChange={onChangeClass} />
+  <input type=" text" value={dobValue} onChange={onChangeDob} />
+        <button onClick={updateName}>Update</button>
+      </div>
+      <p>{studentInfo.name}</p>
+      <p>{studentInfo.class}</p>
+      <p>{studentInfo.dob}</p>
+    </div>
+  )
+}
+
+export default App
