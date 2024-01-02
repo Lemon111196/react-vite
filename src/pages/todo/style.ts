@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { TextField } from "@mui/material";
 export const TodoContainer = styled.div`
     display: flex;
     align-items: center;
@@ -27,3 +28,4 @@ export const TodoContainer = styled.div`
         cursor: pointer;
     }
 `;
+export const TextFieldStyle = styled(TextField)``;
