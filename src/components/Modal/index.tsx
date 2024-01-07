@@ -22,7 +22,7 @@ export default function Dialog(props: IProps) {
                 <div className="group-btn">
                     <Button onClick={onCancel} color="error" className="cancel" variant="outlined">Cancel</Button>
                     <Button onClick={onSubmit} className="confirm" variant="outlined"
-                    >{submitBtn && "OK"}</Button>
+                    >{submitBtn ?? "OK"}</Button>
                 </div>
             </div>
         </DialogContainer>

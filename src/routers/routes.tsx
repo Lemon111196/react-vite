@@ -1,6 +1,10 @@
 import Dashboard from '../pages/Dashboard'
-import Login from '../pages/Login'
+import Login from '../pages/Login';
 import Todo from '../pages/todo';
+import MainLayout from '../layouts/MainLayout';
+import BaseLayout from '../layouts/BaseLayout';
+import DetailTodo from '../pages/DetailTodo';
+
 const routes = () => {
     return [
         {
@@ -13,7 +17,23 @@ const routes = () => {
         },
         {
             path: '/todo',
-            element: <Todo/>
+            element: <MainLayout/>,
+            children: [
+                {
+                    path: 'todo',
+                    element: <BaseLayout />,
+                    children: [
+                        {
+                            path: 'list',
+                            element: <Todo />
+                        },
+                        {
+                            path: ':id',
+                            element: <DetailTodo />
+                        }
+                    ]
+                }
+            ]
         }
     ];
 };
