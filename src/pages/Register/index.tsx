@@ -10,7 +10,9 @@ export default function Register() {
     fullName: '',
     phoneNumber: '',
   })
-
+  const handleRegister = () => {
+    
+  }
   const onChange = (e: any) => {
     setAccount({
       ...account,
@@ -25,9 +27,6 @@ export default function Register() {
       e.preventDefault();
     }
   }
-  const handleOnInput = () => {
-
-  }
   return (
     <RegisterContainer>
       <div className="reg-form">
@@ -41,8 +40,8 @@ export default function Register() {
         <p>Full Name</p>
         <input name="fullName" placeholder="Full name" type="text" onChange={onChange} value={account.fullName} />
         <p>Phone Number</p>
-        <input name="phoneNumber" placeholder="Phone number" type="text" onInput={handleOnInput} onKeyDown={handleKeyDown} onChange={onChange} value={account.phoneNumber} />
-        <Button className="reg-btn" variant="contained">Register</Button>
+        <input name="phoneNumber" placeholder="Phone number" type="text" onKeyDown={handleKeyDown} onChange={onChange} value={account.phoneNumber} />
+        <Button onClick={handleRegister} className="reg-btn" variant="contained">Register</Button>
       </div>
     </RegisterContainer>
   )

@@ -1,7 +1,10 @@
-// import React from 'react'
+import Navbar from "../../components/Navbar";
+import { DashboardContainer } from "./style";
 
 export default function Dashboard() {
   return (
-    <div>Dashboard</div>
+    <DashboardContainer>
+      <Navbar></Navbar>
+    </DashboardContainer>
   )
 }
