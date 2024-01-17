@@ -6,8 +6,8 @@ import BaseLayout from '../layouts/BaseLayout';
 import DetailTodo from '../pages/DetailTodo';
 import Register from '../pages/Register';
 import ProtectedRouter from './ProtectedRouter';
-import Posts from '../posts';
-import Detail from '../posts/Detail';
+import Posts from '../pages/posts';
+import Detail from '../pages/posts/Detail';
 
 const routes = () => {
   return [
