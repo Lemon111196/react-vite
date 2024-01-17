@@ -3,6 +3,7 @@ import { Button, TextField } from "@mui/material";
 import { apiService } from "../../services";
 import { IPost } from "./interface";
 import { useParams } from "react-router-dom";
+import { DetailContainer } from "./style";
 
 export default function Detail() {
   const [detail, setDetail] = useState<IPost>();
@@ -25,6 +26,7 @@ export default function Detail() {
     }
   };
 
+
   const handleEditClick = () => {
     setIsEditing(true);
     setEditedDetail(detail?.body || "");
@@ -43,9 +45,16 @@ export default function Detail() {
 
     setIsEditing(false);
   };
+  
+  const getDataFromLS = () => {
+    const storedData = localStorage.getItem(`post_${id}_body`);
+    if(storedData){
+        setEditedDetail(storedData)
+    }
+  }
 
   return (
-    <div>
+    <DetailContainer>
       {detail ? (
         <div>
           <h2>{detail.title}</h2>
@@ -73,6 +82,8 @@ export default function Detail() {
           Edit
         </Button>
       )}
-    </div>
+      <Button variant="contained">Get</Button>
+
+    </DetailContainer>
   );
 }
