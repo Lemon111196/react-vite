@@ -5,12 +5,15 @@ import MainLayout from '../layouts/MainLayout';
 import BaseLayout from '../layouts/BaseLayout';
 import DetailTodo from '../pages/DetailTodo';
 import Register from '../pages/Register';
+import ProtectedRouter from './ProtectedRouter';
+import Posts from '../posts';
+import Detail from '../posts/Detail';
 
 const routes = () => {
   return [
     {
       path: '/register',
-      element: <Register/>
+      element: <Register />
     },
     {
       path: '/auth',
@@ -21,7 +24,7 @@ const routes = () => {
       element: <Dashboard />
     },
     {
-      path: '/todo',
+      path: '/',
       element: <MainLayout />,
       children: [
         {
@@ -33,8 +36,23 @@ const routes = () => {
               element: <Todo />
             },
             {
+
               path: ':id',
-              element: <DetailTodo />
+              element: <ProtectedRouter component={Todo} />
+            }
+          ]
+        },
+        {
+          path: 'post',
+          element: <BaseLayout />,
+          children: [
+            {
+              path: 'list',
+              element: <Posts />,
+            },
+            {
+              path:':id',
+              element: <Detail/> 
             }
           ]
         }

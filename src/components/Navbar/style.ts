@@ -4,6 +4,10 @@ export const NavbarContainer = styled.div`
     display: flex;
     justify-content: space-between;
     background-color: #CCCCCC;
+    position: fixed;
+    top: 0;
+    z-index: 99;
+    width: 100%;
     h2{
         display: flex;
         align-items: center;

@@ -4,12 +4,14 @@ import { TextField, Button } from "@mui/material"
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import ModeEditOutlineOutlinedIcon from '@mui/icons-material/ModeEditOutlineOutlined';
 import { ITodo } from "./inteface";
-import { useState, useId, ChangeEvent } from "react";
+import { useState, useId, ChangeEvent, useContext } from "react";
 import Dialog from "../../components/Modal"
-
+import Navbar from "../../components/Navbar";
+import { SetAuthContext } from "../../contexts";
 
 export default function Todo() {
   const id = useId()
+  const authContext = useContext(SetAuthContext)
   const [formData, setFormData] = useState<ITodo>({
     id,
     todo: "",
@@ -100,6 +102,7 @@ export default function Todo() {
   }
   return (
     <TodoContainer>
+      <Navbar></Navbar>
       <h1>Todo List</h1>
       <div className="addItem">
         <TextField

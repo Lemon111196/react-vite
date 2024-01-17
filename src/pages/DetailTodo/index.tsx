@@ -3,6 +3,7 @@ import { useLocation, useParams } from 'react-router-dom';
 import { DetailContainer } from './style'
 import useQuery from '../../hooks/useQuery';
 import { useEffect } from 'react';
+import Navbar from '../../components/Navbar';
 
 export default function DetailTodo() {
     const location = useLocation()
@@ -14,9 +15,9 @@ export default function DetailTodo() {
         console.log(query);
     },[])
   return (
-    <div>useQuery</div>
-  )
-  return (
-    <DetailContainer></DetailContainer>
+    <DetailContainer>
+      <Navbar></Navbar>
+      
+    </DetailContainer>
   )
 }
