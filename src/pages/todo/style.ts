@@ -4,6 +4,7 @@ export const TodoContainer = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
+    margin: 100px;
     .addItem{
         display: flex;
         justify-content: space-around;

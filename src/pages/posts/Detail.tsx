@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, TextField } from "@mui/material";
 import { apiService } from "../../services";
 import { IPost } from "./interface";
@@ -33,25 +33,15 @@ export default function Detail() {
   };
 
   const handleSaveClick = () => {
-    // Save the edited detail to localStorage or your backend API
-    // For simplicity, I'm using localStorage here
-    localStorage.setItem(`post_${id}_body`, editedDetail);
-
-    // Update the state with the edited detail
-    setDetail((prevDetail) => ({
-      ...prevDetail,
+    localStorage.setItem(`post/${id}`, editedDetail);
+    setDetail((item: any) => ({
+      ...item,
       body: editedDetail,
     }));
 
     setIsEditing(false);
   };
-  
-  const getDataFromLS = () => {
-    const storedData = localStorage.getItem(`post_${id}_body`);
-    if(storedData){
-        setEditedDetail(storedData)
-    }
-  }
+
 
   return (
     <DetailContainer>
@@ -60,6 +50,7 @@ export default function Detail() {
           <h2>{detail.title}</h2>
           {isEditing ? (
             <TextField
+              className="text-field"
               label="Edit Detail"
               variant="outlined"
               value={editedDetail}
@@ -74,16 +65,14 @@ export default function Detail() {
       )}
 
       {isEditing ? (
-        <Button variant="contained" onClick={handleSaveClick}>
+        <Button className="btn" variant="contained" onClick={handleSaveClick}>
           Save
         </Button>
       ) : (
-        <Button variant="contained" onClick={handleEditClick}>
+        <Button className="btn" variant="contained" onClick={handleEditClick}>
           Edit
         </Button>
       )}
-      <Button variant="contained">Get</Button>
-
     </DetailContainer>
   );
 }

@@ -30,7 +30,7 @@ export default function Posts() {
   }
   return (
     <div>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+      <Table sx={{ minWidth: 550 }} aria-label="simple table">
         <TableHead>
           <TableRow>
             <TableCell>No.</TableCell>
@@ -46,7 +46,7 @@ export default function Posts() {
               <TableCell >{index + 1}</TableCell>
               <TableCell >{item.title}</TableCell>
               <TableCell>{item.body}</TableCell>
-              <Button onClick={() => handleClick(item.id)} variant="outlined">Cờ lích</Button>
+              <TableCell><Button className="btn" onClick={() => handleClick(item.id)} variant="outlined">Click</Button></TableCell>
             </TableRow>
           ))}
         </TableBody>
