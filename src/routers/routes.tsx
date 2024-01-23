@@ -3,11 +3,11 @@ import Login from '../pages/Login';
 import Todo from '../pages/todo';
 import MainLayout from '../layouts/MainLayout';
 import BaseLayout from '../layouts/BaseLayout';
-import DetailTodo from '../pages/DetailTodo';
 import Register from '../pages/Register';
 import ProtectedRouter from './ProtectedRouter';
 import Posts from '../pages/posts';
 import Detail from '../pages/posts/Detail';
+import ReactHookForm from '../pages/reactHookForm';
 
 const routes = () => {
   return [
@@ -21,12 +21,13 @@ const routes = () => {
     },
     {
       path: '/',
-      element: <Dashboard />
-    },
-    {
-      path: '/',
       element: <MainLayout />,
       children: [
+        {
+          path: '/',
+          element: <Dashboard />
+        }
+        ,
         {
           path: 'todo',
           element: <BaseLayout />,
@@ -43,6 +44,10 @@ const routes = () => {
           ]
         },
         {
+          path: 'reacthookform',
+          element: <ReactHookForm />
+        },
+        {
           path: 'post',
           element: <BaseLayout />,
           children: [
@@ -51,8 +56,8 @@ const routes = () => {
               element: <Posts />,
             },
             {
-              path:':id',
-              element: <Detail/> 
+              path: ':id',
+              element: <Detail />
             }
           ]
         }

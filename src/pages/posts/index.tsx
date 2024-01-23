@@ -15,7 +15,7 @@ export default function Posts() {
 
   const getPostList = async () => {
     try {
-      const response = await apiService.get('/posts');
+      const response = await apiService.get('/auth/login');
       console.log(response);
       if (response.status === 200) {
         setPostList(response.data)
