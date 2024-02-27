@@ -3,7 +3,6 @@ import { ReactHookFormContainer } from "./style";
 import { IForm } from "./interface";
 import { useRef } from "react";
 import { TextField } from "@mui/material";
-// import yup from 'yup';
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "./schema";
 export default function ReactHookForm() {
@@ -36,13 +35,6 @@ export default function ReactHookForm() {
     console.log(error);
     // console.log(getValues());
   }
-  const getRef = () => {
-    console.log(inputRef.current?.value);
-  }
-
-  const submitClass: SubmitHandler<any> = (data) => {
-    console.log(data);
-  }
   return (
     <ReactHookFormContainer>
       <div className="introduce-rhf">
@@ -58,7 +50,7 @@ export default function ReactHookForm() {
         {errors.lastName && (
           <span className="error">{errors?.lastName?.message?.toString()}</span>
         )}
-        <button onSubmit={handleSubmit(submitName)}
+        <button onClick={handleSubmit(submitName)}
           type="submit">Submit</button>
         <button onClick={() => getForm(errors)}>Get all value</button>
       </div>

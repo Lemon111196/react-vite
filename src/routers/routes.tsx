@@ -8,6 +8,7 @@ import ProtectedRouter from './ProtectedRouter';
 import Posts from '../pages/posts';
 import Detail from '../pages/posts/Detail';
 import ReactHookForm from '../pages/reactHookForm';
+import TodoRedux from '../pages/TodoRedux';
 
 const routes = () => {
   return [
@@ -24,10 +25,9 @@ const routes = () => {
       element: <MainLayout />,
       children: [
         {
-          path: '/',
-          element: <Dashboard />
-        }
-        ,
+          path: 'todoredux',
+          element: <TodoRedux />
+        },
         {
           path: 'todo',
           element: <BaseLayout />,
@@ -42,6 +42,10 @@ const routes = () => {
               element: <ProtectedRouter component={Todo} />
             }
           ]
+        },
+        {
+          path: '/',
+          element: <Dashboard />
         },
         {
           path: 'reacthookform',
