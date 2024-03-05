@@ -3,7 +3,7 @@ export interface ITodoStore {
     todoList: ITodoList[]
 }
 export interface ITodoList {
-    id?: string | number;
+    id: string;
     title: string;
     content: string;
     status: string;

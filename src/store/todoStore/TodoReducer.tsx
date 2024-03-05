@@ -17,8 +17,19 @@ const TodoReducer = createSlice({
     },
     createTodo: (state, action) => {
       state.todoList.push(action.payload)
-    }
+    },
+    deleteTodo: (state, action) => {
+      console.log(action.payload);
+      state.todoList = state.todoList.filter(item => item.id !== action.payload)
+    },
+    updateTodo: (state, action) => {
+      const { id, updatedTodo } = action.payload;
+      const index = state.todoList.findIndex(item => item.id === id);
 
+      if (index !== -1) {
+        state.todoList[index] = { ...state.todoList[index], ...updatedTodo };
+      }
+    },
   },
 });
 
